@@ -3,16 +3,16 @@
     font-weight: 300 300;
    /* относительные ссылки на шрифты, в теории, заставят их много дублироваться */
    /* на практике в любом адекватном браузере эти шрифты весят меньше, чем сам текст */
-    src: url("fonts/Commissioner-Light.woff2") format("woff2")
-         url("fonts/Commissioner-Light.woff") format("woff")
+    src: url("fonts/Commissioner-Light.woff2") format("woff2"),
+         url("fonts/Commissioner-Light.woff") format("woff"),
          url("fonts/Commissioner-Light.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Commissioner";
     font-weight: 600 600;
-    src: url("fonts/Commissioner-SemiBold.woff2") format("woff2")
-         url("fonts/Commissioner-SemiBold.woff") format("woff")
+    src: url("fonts/Commissioner-SemiBold.woff2") format("woff2"),
+         url("fonts/Commissioner-SemiBold.woff") format("woff"),
          url("fonts/Commissioner-SemiBold.ttf") format("truetype");
 }
 
