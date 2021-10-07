@@ -27,10 +27,6 @@
 							<a href="{{ person.uik_link }}">УИК № {{ person.uik_n }}</a>
 						</aside>
 					</header>
-					{% comment %}
-						вот этот блок можно было бы убрать вообще
-						получается по эмоции самое то, но совсем непонятна суть претензии
-					{% endcomment %}
 					<ul class="tags-list hidden">
 						{% for tag in person.tags %}
 							<li>{{ tag }}</li>
