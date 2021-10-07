@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "Commissioner";
+    font-weight: 300 300;
+    src: local("Commissioner Light")
+         local("Commissioner-Light")
+           /* относительные ссылки на шрифты, в теории, заставят их много дублироваться */
+           /* на практике в любом адекватном браузере эти шрифты весят меньше, чем сам текст */
+           url("fonts/Commissioner-Light.woff2") format("woff2")
+           url("fonts/Commissioner-Light.woff") format("woff")
+           url("fonts/Commissioner-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Commissioner";
+    font-weight: 600 600;
+    src: local("Commissioner SemiBold")
+         local("Commissioner-SemiBold")
+           url("fonts/Commissioner-SemiBold.woff2") format("woff2")
+           url("fonts/Commissioner-SemiBold.woff") format("woff")
+           url("fonts/Commissioner-SemiBold.ttf") format("truetype");
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* контрастная чёрно-белая гамма для визуальной громкости */
+	/* можно инвертировать, но получается как-то по-детски и совсем не читается */
+    color: black;
+    background: white;
+    /* не идеально, но сойдёт. хочется что-то рублёное, жёсткое */
+    font-family: "Commissioner", sans-serif;
+    font-weight: 300;
+}
+
+h1, h2 {
+    /* нет нужды в разных шрифтах, не жертвуем строгостью */
+    font-weight: 600;
+}
+
+a {
+    /* подчёркивания хватит, опять же не жертвуем строгостью */
+    color: black;
+    padding: 0;
+    /* само подчёркивание тоже переделываем, хочется нормальный :hover */
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+
+a:hover {
+    border-bottom: 1px dashed;
+}
+
+.main-header, main, .main-footer {
+    /* пробовала фиксированную величину: выглядит плохо на широкоформатных мониторах */
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-header h1 {
+    /* можем себе позволить, он такой один */
+    font-size: 4rem;
+}
+
+main {
+    /* и ещё 2% под футером, итого 5% */
+    padding-bottom: 3%;
+}
+
+.main-footer {
+    padding-bottom: 2%;
+    /* столько же, сколько у списков тегов */
+    font-size: 2rem;
+}
+
+.person-name {
+    font-size: 2.5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.uik {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.tags-list {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.tags-list.hidden {
+	display: none;
+}
+
+#expand-tags {
+	display: inline-block;
+	font-size: 2rem;
+	border-bottom-style: dashed;
+	margin-bottom: 1.65rem;
+}
+
+#moral {
+    /* опять столько же, сколько у списков тегов. от добра добра не ищут */
+    font-size: 2rem;
+}
+
+.tags-details {
+	list-style: none;
+    font-size: 1.5rem;
+	margin-top: 1rem;
+}
