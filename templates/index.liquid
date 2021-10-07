@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Сделка с совестью</title>
+		{% comment %}
+			все ссылки делаем относительными, чтобы можно было спокойно класть в директорию
+		{% endcomment %}
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="main-header">
+			<h1>
+				Статус‑кво это результат сделки конкретных людей с совестью.
+			</h1>
+		</header>
+		<main>
+			<a id="expand-tags" href="#">Что допустили эти люди?</a>	
+			{% for person in people %}
+				<article class="person">
+					<header class="person-header">
+						<h2 class="person-name">{{ person.name }}</h2>
+						{% comment %}
+							слева выглядит всё-таки хуже
+						{% endcomment %}
+						<aside class="uik">
+							<a href="{{ person.uik_link }}">УИК № {{ person.uik_n }}</a>
+						</aside>
+					</header>
+					{% comment %}
+						вот этот блок можно было бы убрать вообще
+						получается по эмоции самое то, но совсем непонятна суть претензии
+					{% endcomment %}
+					<ul class="tags-list hidden">
+						{% for tag in person.tags %}
+							<li>{{ tag }}</li>
+						{% endfor %}
+						<li class="tags-details"><a href="{{ person.uik_link }}">Подробности</a></li>
+					</ul>
+				</article>
+			{% endfor %}
+		</main>
+		<footer class="main-footer">
+			{% comment %}
+				не уверена, что это надо прятать в самый низ, но куда ещё?
+			{% endcomment %}
+			<a href="moral.html">Немного о моральной стороне вопроса</a>
+		</footer>
+		<script>
+			window.onload = function() {
+				let currentlyHidden = true;
+				const expandLink = document.getElementById('expand-tags');
+				expandLink.onclick = function(ev) {
+					ev.preventDefault();
+					if (currentlyHidden) {
+							expandLink.innerHTML = 'Показать только имена';
+					} else {
+							expandLink.innerHTML = 'Что допустили эти люди?';
+					}
+					currentlyHidden ^= true;
+					for (tagsList of document.getElementsByClassName('tags-list')) {
+							tagsList.classList.toggle('hidden');
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
